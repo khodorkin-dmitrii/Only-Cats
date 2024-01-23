@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Only Cats"
 include(":app")
+include(":mainScreenLib")
