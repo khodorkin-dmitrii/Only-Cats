@@ -1,4 +1,4 @@
-package com.yavin.mainscreenlib.screens
+package com.yavin.mainscreenlib.presentation.screens
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Column
