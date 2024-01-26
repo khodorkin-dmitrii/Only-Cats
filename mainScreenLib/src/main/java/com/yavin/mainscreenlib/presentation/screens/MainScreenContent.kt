@@ -9,12 +9,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.yavin.mainscreenlib.presentation.UserCatsViewModel
 import com.yavin.mainscreenlib.presentation.widgets.CatsRow
 
 @Composable
 fun MainScreenContent() {
     Text(text = "Main Screen Content")
     val scrollState = rememberScrollState()
+
+    val userCatsViewModel = hiltViewModel<UserCatsViewModel>()
+//    val userCast = userCatsViewModel.getUserCasts()
 
     Column(
         modifier = Modifier
