@@ -7,9 +7,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.yavin.mainscreenlib.data.UserCat
 import com.yavin.mainscreenlib.presentation.UserCatsViewModel
 import com.yavin.mainscreenlib.presentation.widgets.CatsRow
 
@@ -19,7 +21,9 @@ fun MainScreenContent() {
     val scrollState = rememberScrollState()
 
     val userCatsViewModel = hiltViewModel<UserCatsViewModel>()
-//    val userCast = userCatsViewModel.getUserCasts()
+    val userCastState = userCatsViewModel.uiState.collectAsState()
+
+    // TODO map loading to skeleton end error case
 
     Column(
         modifier = Modifier
@@ -27,15 +31,19 @@ fun MainScreenContent() {
             .verticalScroll(scrollState)
             .animateContentSize()
     ) {
-        CatsRowBlock(onCatTap = {})
+        CatsRowBlock(
+            userCastState.value.userCasts,
+            onCatTap = {}
+        )
     }
 }
 
 @Composable
 private fun CatsRowBlock(
+    userCats: List<UserCat>,
     onCatTap: (String) -> Unit,
 ) {
-    CatsRow(onCatTap = onCatTap)
+    CatsRow(userCats = userCats, onCatTap = onCatTap)
 }
 
 @Preview(showBackground = true)

@@ -1,7 +1,7 @@
 package com.yavin.mainscreenlib.di
 
-import com.yavin.mainscreenlib.data.UserCatRepository
-import com.yavin.mainscreenlib.data.UserCatRepositoryImpl
+import com.yavin.mainscreenlib.data.UserCatsRepository
+import com.yavin.mainscreenlib.data.UserCatsRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,7 @@ object MainModule {
 
     @Provides
     @Singleton
-    fun provideUserCatRepository(): UserCatRepository {
-        return UserCatRepositoryImpl()
+    fun provideUserCatRepository(): UserCatsRepository {
+        return UserCatsRepositoryImpl()
     }
 }

@@ -4,7 +4,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class UserCatRepositoryImpl : UserCatRepository {
+class UserCatsRepositoryImpl : UserCatsRepository {
     override suspend fun getCats(): Flow<List<UserCatDto>> {
         return flow {
             delay(500)
