@@ -1,0 +1,5 @@
+<resources>
+    <string name="main_my_cats">My cats (%d)</string>
+
+    <string name="content_description_beer_image">Cat image</string>
+</resources>
