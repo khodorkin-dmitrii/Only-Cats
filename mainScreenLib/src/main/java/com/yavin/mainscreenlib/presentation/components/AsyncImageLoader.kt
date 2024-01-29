@@ -1,5 +1,6 @@
 package com.yavin.mainscreenlib.presentation.components
 
+import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeOut
@@ -25,8 +26,7 @@ import com.yavin.mainscreenlib.R
 
 @Composable
 fun AsyncImageWithPreview(
-    url: String?,
-    modifier: Modifier = Modifier
+    url: String?, modifier: Modifier = Modifier
 ) {
     val contentDescription: String = stringResource(R.string.content_description_beer_image)
     if (!LocalInspectionMode.current) { // not in preview move
@@ -35,17 +35,25 @@ fun AsyncImageWithPreview(
         Box(modifier = modifier) {
             SubcomposeAsyncImage(
                 model = url,
-                onLoading = { loadingState = true },
-                onSuccess = { loadingState = false },
-                onError = { loadingState = false },
+                onLoading = {
+                    loadingState = true
+                    Log.d("IMAGE_LOADING", "loading ${url!!}")
+                },
+                onSuccess = {
+                    loadingState = false
+                    Log.d("IMAGE_LOADING", "loaded ${url!!}")
+                },
+                onError = {
+                    loadingState = false
+                    Log.d("IMAGE_LOADING", "error ${url!!}")
+                },
                 contentDescription = contentDescription,
                 filterQuality = FilterQuality.Low,
                 modifier = modifier
             )
 
             AnimatedVisibility(
-                visible = loadingState,
-                exit = fadeOut(animationSpec = tween(300))
+                visible = loadingState, exit = fadeOut(animationSpec = tween(300))
             ) {
                 Shimmer(
                     baseColor = MaterialTheme.colorScheme.surfaceVariant,

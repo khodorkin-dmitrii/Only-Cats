@@ -12,7 +12,9 @@ import androidx.compose.ui.Modifier
 import com.yavin.mainscreenlib.ScreenData
 import com.yavin.mainscreenlib.presentation.screens.MainScreenContent
 import com.yavin.onlycats.ui.theme.OnlyCatsTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

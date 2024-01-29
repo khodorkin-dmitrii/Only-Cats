@@ -1,5 +1,6 @@
 package com.yavin.mainscreenlib.presentation.widgets
 
+import android.util.Log
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -131,6 +132,7 @@ private fun UserCatSmallItem(
                     ) {
                         onUserCatTap.invoke(data.id)
                     }) {
+                Log.d("IMAGE_LOADING", data.imageUrl)
                 AsyncImageWithPreview(data.imageUrl, Modifier.size(itemSize))
             }
         }
@@ -159,13 +161,13 @@ fun CatsRowPreview() {
 private val mockCats = listOf(
     UserCat(
         "0",
-        "Cat0",
+        "Cat 0",
         "http://placekitten.com/200/200",
         true
     ),
     UserCat(
         "1",
-        "Cat1",
+        "Cat 1",
         "http://placekitten.com/200/200",
         true
     )

@@ -1,5 +1,6 @@
 package com.yavin.mainscreenlib.presentation.screens
 
+import android.util.Log
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,13 +17,15 @@ import com.yavin.mainscreenlib.presentation.UserCatsViewModel
 import com.yavin.mainscreenlib.presentation.widgets.CatsRow
 
 @Composable
-fun MainScreenContent() {
+fun MainScreenContent(
+//    state: UserCatsModelState
+) {
     Text(text = "Main Screen Content")
     val scrollState = rememberScrollState()
 
     val userCatsViewModel = hiltViewModel<UserCatsViewModel>()
     val userCastState = userCatsViewModel.uiState.collectAsState()
-
+    Log.d("CATS_STATE", userCastState.value.state.name)
     // TODO map loading to skeleton end error case
 
     Column(

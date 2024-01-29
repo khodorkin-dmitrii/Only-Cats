@@ -16,14 +16,14 @@ class UserCatsRepositoryImpl : UserCatsRepository {
         return listOf(
             UserCatDto(
                 "0",
-                "Cat0",
-                "http://placekitten.com/200/200",
+                "Stephan",
+                "https://picsum.photos/id/40/200/200.jpg",
                 true
             ),
             UserCatDto(
                 "1",
-                "Cat1",
-                "http://placekitten.com/200/200",
+                "Shteffie",
+                "https://picsum.photos/id/219/200/200.jpg",
                 true
             )
         )
