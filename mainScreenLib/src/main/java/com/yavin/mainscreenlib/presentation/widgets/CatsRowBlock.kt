@@ -1,6 +1,5 @@
 package com.yavin.mainscreenlib.presentation.widgets
 
-import android.util.Log
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -31,6 +30,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
@@ -40,7 +40,6 @@ import com.yavin.mainscreenlib.data.UserCat
 import com.yavin.mainscreenlib.presentation.components.AsyncImageWithPreview
 
 val itemSize = 80.dp
-val textBlockHeight = 64.dp
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -53,7 +52,6 @@ fun CatsRow(
             .background(color = Color.White)
             .fillMaxWidth()
     ) {
-
         //region User Devices Title
         Box(
             modifier = Modifier
@@ -116,37 +114,35 @@ private fun UserCatSmallItem(
 ) {
     Column(
         modifier = modifier
-            .width(102.dp)
+            .width(100.dp)
     ) {
         Box(
-            Modifier.size(itemSize)
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(itemSize)
-                    .clip(CircleShape)
-                    .background(color = Color.LightGray)
-                    .clickable(
-                        interactionSource = remember { MutableInteractionSource() },
-                        indication = rememberRipple(radius = 300.dp)
-                    ) {
-                        onUserCatTap.invoke(data.id)
-                    }) {
-                Log.d("IMAGE_LOADING", data.imageUrl)
-                AsyncImageWithPreview(data.imageUrl, Modifier.size(itemSize))
-            }
+            modifier = Modifier
+                .size(itemSize)
+                .clip(CircleShape)
+                .background(color = Color.LightGray)
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = rememberRipple(radius = 300.dp)
+                ) {
+                    onUserCatTap.invoke(data.id)
+                }) {
+            AsyncImageWithPreview(data.imageUrl,
+                Modifier
+                    .size(102.dp)
+                    .clip(CircleShape))
         }
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .height(textBlockHeight)
         ) {
             Text(
                 text = data.name,
                 maxLines = 1,
+                textAlign = TextAlign.Center,
                 overflow = TextOverflow.Ellipsis,
                 style = MaterialTheme.typography.titleSmall,
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier.fillMaxWidth().padding(top = 8.dp)
             )
         }
     }
@@ -161,14 +157,12 @@ fun CatsRowPreview() {
 private val mockCats = listOf(
     UserCat(
         "0",
-        "Cat 0",
-        "http://placekitten.com/200/200",
-        true
+        "Stephan",
+        "url"
     ),
     UserCat(
         "1",
-        "Cat 1",
-        "http://placekitten.com/200/200",
-        true
+        "Shteffie",
+        "url"
     )
 )

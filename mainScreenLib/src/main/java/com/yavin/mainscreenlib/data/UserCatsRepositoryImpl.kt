@@ -17,16 +17,18 @@ class UserCatsRepositoryImpl : UserCatsRepository {
             UserCatDto(
                 "0",
                 "Stephan",
-                "https://picsum.photos/id/40/200/200.jpg",
-                true
+                CAT_IMG_URL
             ),
             UserCatDto(
                 "1",
                 "Shteffie",
-                "https://picsum.photos/id/219/200/200.jpg",
-                true
+                CAT_IMG_URL
             )
         )
+    }
+
+    companion object {
+        const val CAT_IMG_URL = "https://cataas.com/cat?type=square&width=100"
     }
 
 }
