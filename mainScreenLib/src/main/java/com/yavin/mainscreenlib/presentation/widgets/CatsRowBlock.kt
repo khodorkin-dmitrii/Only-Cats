@@ -36,7 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.yavin.mainscreenlib.R
-import com.yavin.mainscreenlib.data.UserCat
+import com.yavin.mainscreenlib.model.UserCat
 import com.yavin.mainscreenlib.presentation.components.AsyncImageWithPreview
 
 val itemSize = 80.dp

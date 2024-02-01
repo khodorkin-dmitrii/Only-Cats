@@ -10,7 +10,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.yavin.mainscreenlib.data.UserCat
+import com.yavin.mainscreenlib.model.UserCat
 import com.yavin.mainscreenlib.presentation.UserCatsViewModel
 import com.yavin.mainscreenlib.presentation.widgets.CatsRow
 

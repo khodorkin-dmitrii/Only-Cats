@@ -1,3 +1,3 @@
-package com.yavin.mainscreenlib
+package com.yavin.mainscreenlib.ui
 
 data class ScreenData(val name: String)

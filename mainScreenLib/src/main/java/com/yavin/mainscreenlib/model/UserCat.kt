@@ -1,4 +1,4 @@
-package com.yavin.mainscreenlib.data
+package com.yavin.mainscreenlib.model
 
 data class UserCatDto(
     val id: String,

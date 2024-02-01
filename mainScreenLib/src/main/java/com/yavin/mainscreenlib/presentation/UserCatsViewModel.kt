@@ -3,9 +3,9 @@ package com.yavin.mainscreenlib.presentation
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yavin.mainscreenlib.data.UserCat
+import com.yavin.mainscreenlib.model.UserCat
 import com.yavin.mainscreenlib.data.UserCatsRepository
-import com.yavin.mainscreenlib.data.toCat
+import com.yavin.mainscreenlib.model.toCat
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
