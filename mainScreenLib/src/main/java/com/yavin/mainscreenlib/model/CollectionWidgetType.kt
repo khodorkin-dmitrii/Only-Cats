@@ -6,6 +6,7 @@ enum class CollectionWidgetType(val type: String) {
     BANNER("banner"),
     FULL_WIDTH("full_width"),
     PROMO_BUTTONS("promo_buttons"),
+    CAT_MONEY("cat_money"),
 
     UNKNOWN("unknown")
 }
