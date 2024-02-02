@@ -22,3 +22,12 @@ enum class WidgetActionType(val type: String) {
     DEEPLINK("deeplink"),
     UNKNOWN("unknown")
 }
+
+data class UiCollectionWithWidgetData(
+    val id: Int,
+    val orderId: Int,
+    val pageId: String,
+    val type: CollectionWidgetType,
+    val translatableFields: List<TranslatableField>,
+    val widgets: List<UiWidget>
+)
