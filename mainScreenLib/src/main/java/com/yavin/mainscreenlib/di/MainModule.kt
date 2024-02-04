@@ -1,5 +1,7 @@
 package com.yavin.mainscreenlib.di
 
+import com.yavin.mainscreenlib.data.MainUIDataRepository
+import com.yavin.mainscreenlib.data.MockMainUIDataRepositoryImpl
 import com.yavin.mainscreenlib.data.UserCatsRepository
 import com.yavin.mainscreenlib.data.UserCatsRepositoryImpl
 import dagger.Module
@@ -16,5 +18,11 @@ object MainModule {
     @Singleton
     fun provideUserCatRepository(): UserCatsRepository {
         return UserCatsRepositoryImpl()
+    }
+
+    @Provides
+    @Singleton
+    fun provideMainUIRepository(): MainUIDataRepository {
+        return MockMainUIDataRepositoryImpl()
     }
 }
