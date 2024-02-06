@@ -1,5 +1,6 @@
 package com.yavin.mainscreenlib.presentation.screens
 
+import android.util.Log
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +16,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.yavin.mainscreenlib.data.WidgetTapData
+import com.yavin.mainscreenlib.model.CollectionWidgetType
 import com.yavin.mainscreenlib.model.UiCollectionWithWidgetData
 import com.yavin.mainscreenlib.model.UserCat
 import com.yavin.mainscreenlib.presentation.FetchWidgetState
@@ -22,8 +24,9 @@ import com.yavin.mainscreenlib.presentation.MainUiViewModel
 import com.yavin.mainscreenlib.presentation.UserCatsViewModel
 import com.yavin.mainscreenlib.presentation.components.DynamicContentSkeleton
 import com.yavin.mainscreenlib.presentation.widgets.CatsRow
-import com.yavin.mainscreenlib.ui.theme.Dimens.Companion.blockPaddingDp
-import com.yavin.mainscreenlib.ui.theme.Dimens.Companion.itemPaddingDp
+import com.yavin.mainscreenlib.presentation.widgets.CompatBlock
+import com.yavin.mainscreenlib.ui.theme.MainDimens.Companion.blockPaddingDp
+import com.yavin.mainscreenlib.ui.theme.MainDimens.Companion.itemPaddingDp
 
 @Composable
 fun MainScreenContent() {
@@ -98,14 +101,14 @@ private fun ShowLoadedWidgets(
     onWidgetTap: (WidgetTapData) -> Unit
 ) {
     uiWidgets.forEach { item ->
-//        when (item.type) {
-//            COMPACT -> CompatBlock(item, halfScreenItemWidth, itemHeight, onWidgetTap)
-//            COMPACT_SCROLL -> CompatScrollBlock(item, halfScreenItemWidth, itemHeight, onWidgetTap)
-//            BANNER -> MoneyBannerBlock(item, fullScreenItemWidth, onWidgetTap)
-//            FULL_WIDTH -> FullWidthBlock(item, fullScreenItemWidth, itemHeight, onWidgetTap)
-//            PROMO_BUTTONS -> PromoButtonsBlock(item, onWidgetTap)
-//            else -> LocalLog.current.log("$item")
-//        }
+        when (item.type) {
+        CollectionWidgetType.COMPACT -> CompatBlock(item, halfScreenItemWidth, itemHeight, onWidgetTap)
+//        CollectionWidgetType.COMPACT_SCROLL -> CompatScrollBlock(item, halfScreenItemWidth, itemHeight, onWidgetTap)
+//        CollectionWidgetType.BANNER -> MoneyBannerBlock(item, fullScreenItemWidth, onWidgetTap)
+//        CollectionWidgetType.FULL_WIDTH -> FullWidthBlock(item, fullScreenItemWidth, itemHeight, onWidgetTap)
+//        CollectionWidgetType.PROMO_BUTTONS -> PromoButtonsBlock(item, onWidgetTap)
+            else -> Log.w("UNKNOWN_UI","$item")
+        }
     }
 }
 

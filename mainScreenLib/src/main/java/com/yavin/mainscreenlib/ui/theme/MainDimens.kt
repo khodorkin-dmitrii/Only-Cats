@@ -2,7 +2,7 @@ package com.yavin.mainscreenlib.ui.theme
 
 import androidx.compose.ui.unit.dp
 
-class Dimens {
+class MainDimens {
     companion object {
         val verySmallRound = 8.dp
         val smallRound = 12.dp

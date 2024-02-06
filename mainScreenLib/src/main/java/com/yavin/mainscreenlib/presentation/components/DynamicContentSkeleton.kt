@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.yavin.mainscreenlib.ui.theme.Dimens.Companion.verySmallRound
+import com.yavin.mainscreenlib.ui.theme.MainDimens.Companion.verySmallRound
 import com.yavin.mainscreenlib.ui.util.scrollEnabled
 
 @Composable
