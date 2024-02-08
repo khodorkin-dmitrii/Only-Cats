@@ -83,7 +83,7 @@ class MockMainUIDataRepositoryImpl : MainUIDataRepository {
                 "deeplink to another screen", // TODO
                 null,
                 "#d3d3d3",
-                "SomeImageID",
+                UserCatsRepositoryImpl.CAT_IMG_URL,
                 "#31304a",
                 "#31304a",
                 CollectionWidgetType.COMPACT,
@@ -100,7 +100,7 @@ class MockMainUIDataRepositoryImpl : MainUIDataRepository {
                 "some cat related wiki page", // TODO
                 null,
                 "#d3d3d3",
-                "SomeImageID",
+                UserCatsRepositoryImpl.CAT_IMG_URL,
                 "#31304a",
                 "#31304a",
                 CollectionWidgetType.COMPACT,
@@ -110,7 +110,7 @@ class MockMainUIDataRepositoryImpl : MainUIDataRepository {
             ),
             UiWidget(
                 1,
-                "SomeImageID",
+                UserCatsRepositoryImpl.CAT_IMG_URL,
                 1,
                 2,
                 WidgetActionType.EXTERNAL_BROWSER,
@@ -131,7 +131,7 @@ class MockMainUIDataRepositoryImpl : MainUIDataRepository {
             ),
             UiWidget(
                 2,
-                "SomeImageID",
+                UserCatsRepositoryImpl.CAT_IMG_URL,
                 2,
                 2,
                 WidgetActionType.EXTERNAL_BROWSER,
