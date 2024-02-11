@@ -25,8 +25,8 @@ import com.yavin.mainscreenlib.presentation.UserCatsViewModel
 import com.yavin.mainscreenlib.presentation.components.DynamicContentSkeleton
 import com.yavin.mainscreenlib.presentation.widgets.BannerBlock
 import com.yavin.mainscreenlib.presentation.widgets.CatsRow
-import com.yavin.mainscreenlib.presentation.widgets.CompatBlock
-import com.yavin.mainscreenlib.presentation.widgets.CompatScrollBlock
+import com.yavin.mainscreenlib.presentation.widgets.CompactBlock
+import com.yavin.mainscreenlib.presentation.widgets.CompactScrollBlock
 import com.yavin.mainscreenlib.presentation.widgets.FullWidthBlock
 import com.yavin.mainscreenlib.presentation.widgets.PromoButtonsBlock
 import com.yavin.mainscreenlib.ui.theme.MainDimens.Companion.blockPaddingDp
@@ -106,8 +106,8 @@ private fun ShowLoadedWidgets(
 ) {
     uiWidgets.forEach { item ->
         when (item.type) {
-        CollectionWidgetType.COMPACT -> CompatBlock(item, halfScreenItemWidth, itemHeight, onWidgetTap)
-        CollectionWidgetType.COMPACT_SCROLL -> CompatScrollBlock(item, halfScreenItemWidth, itemHeight, onWidgetTap)
+        CollectionWidgetType.COMPACT -> CompactBlock(item, halfScreenItemWidth, itemHeight, onWidgetTap)
+        CollectionWidgetType.COMPACT_SCROLL -> CompactScrollBlock(item, halfScreenItemWidth, itemHeight, onWidgetTap)
         CollectionWidgetType.BANNER -> BannerBlock(item, fullScreenItemWidth, onWidgetTap)
         CollectionWidgetType.FULL_WIDTH -> FullWidthBlock(item, fullScreenItemWidth, itemHeight, onWidgetTap)
         CollectionWidgetType.PROMO_BUTTONS -> PromoButtonsBlock(item, onWidgetTap)
