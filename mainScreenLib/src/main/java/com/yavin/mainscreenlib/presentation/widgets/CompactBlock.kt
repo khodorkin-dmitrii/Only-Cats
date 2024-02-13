@@ -17,7 +17,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
@@ -100,12 +99,13 @@ private fun ItemContent(
         data.background_image_id?.let {
             AsyncImageWithPreview(it, Modifier.size(itemWidth, itemHeight))
         }
-        Box {
-            Box(modifier = Modifier.fillMaxWidth().height(56.dp).alpha(0.5f).background(Color.White))
+
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.White.copy(0.5f))) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-//                    .background(Color.Cyan).alpha(0.5f)
                     .padding(16.dp, 16.dp, 16.dp, 0.dp)
             ) {
                 data.translatable_fields[0].title?.let {
