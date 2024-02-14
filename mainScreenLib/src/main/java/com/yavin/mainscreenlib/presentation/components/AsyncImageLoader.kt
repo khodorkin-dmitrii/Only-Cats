@@ -4,6 +4,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -14,6 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.compose.SubcomposeAsyncImage
 import com.yavin.mainscreenlib.R
@@ -60,4 +63,16 @@ fun AsyncImageWithPreview(
             modifier = modifier
         )
     }
+}
+
+@Preview
+@Composable
+fun AsyncImagePreview() {
+    AsyncImageWithPreview("")
+}
+
+@Preview
+@Composable
+fun AsyncImagePreviewSize() {
+    AsyncImageWithPreview("", Modifier.size(100.dp, 100.dp))
 }

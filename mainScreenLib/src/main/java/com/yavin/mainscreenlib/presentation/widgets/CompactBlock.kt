@@ -21,11 +21,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.yavin.mainscreenlib.data.UserCatsRepositoryImpl
 import com.yavin.mainscreenlib.data.WidgetTapData
+import com.yavin.mainscreenlib.model.CollectionWidgetType
+import com.yavin.mainscreenlib.model.TranslatableField
 import com.yavin.mainscreenlib.model.UiCollectionWithWidgetData
 import com.yavin.mainscreenlib.model.UiWidget
+import com.yavin.mainscreenlib.model.WidgetActionType
 import com.yavin.mainscreenlib.presentation.components.AsyncImageWithPreview
 import com.yavin.mainscreenlib.ui.theme.MainColors
 import com.yavin.mainscreenlib.ui.theme.MainDimens.Companion.bigRound
@@ -100,13 +105,15 @@ private fun ItemContent(
             AsyncImageWithPreview(it, Modifier.size(itemWidth, itemHeight))
         }
 
-        Box(modifier = Modifier
-            .fillMaxWidth()
-            .background(Color.White.copy(0.5f))) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.White.copy(0.5f))
+        ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp, 16.dp, 16.dp, 0.dp)
+                    .padding(16.dp, 16.dp, 16.dp, 8.dp)
             ) {
                 data.translatable_fields[0].title?.let {
                     Text(
@@ -140,5 +147,27 @@ private fun ItemContent(
             StateBadge(text = it)
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ItemContentPreview() {
+    ItemContent(data = UiWidget(
+        8,
+        null,
+        1,
+        1,
+        WidgetActionType.DEEPLINK,
+        "deeplink to another screen", // TODO
+        null,
+        "#d3d3d3",
+        UserCatsRepositoryImpl.CAT_IMG_URL,
+        "#31304a",
+        "#31304a",
+        CollectionWidgetType.COMPACT,
+        listOf(
+            TranslatableField(8, "Рецепты для питомцев", "100 500+ рецептов", "badge")
+        )
+    ), itemWidth = 250.dp, itemHeight = 250.dp, onWidgetTap = {})
 }
 
